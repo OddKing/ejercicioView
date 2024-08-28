@@ -13,18 +13,22 @@ def clasificacionPerrito(request):
 
         print(cantidadPerrito>0)
         while cantidadPerrito>0:
-            cantidad=int(input('ingrese la edad 0 - 16 :'))
-            if cantidad >=0 and cantidad <=16:
-                if cantidad <= 1:
-                    cachorro+=1
-                elif cantidad >1 and cantidad <=5:
-                    adulto+=1
-                elif cantidad > 6:
-                    senior+=1
-                
+            try:
+                cantidad=int(input('ingrese la edad 0 - 16 :'))
+            
+                if cantidad >=0 and cantidad <=16:
+                    if cantidad <= 1:
+                        cachorro+=1
+                    elif cantidad >1 and cantidad <=5:
+                        adulto+=1
+                    elif cantidad > 6:
+                        senior+=1
+                else:
+                    raise  Exception('error')
                 cantidadPerrito=cantidadPerrito-1
-            else:
-                raise  Exception('error')
+            except:
+                print('Error')    
+            
     except:
         print('ERROR')       
 
